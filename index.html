@@ -95,7 +95,7 @@
   </style>
 <!-- END: Custom Global Styles -->
 </head>
-<body class="bg-dark-base text-gray-100 h-svh min-h-screen relative flex flex-col items-center justify-start pb-20 selection:bg-brand-teal selection:text-white overflow-x-hidden">
+<body class="bg-dark-base text-gray-100 h-svh min-h-screen relative flex flex-col items-center justify-start pb-6 selection:bg-brand-teal selection:text-white overflow-x-hidden">
 <!-- Background decorative studio ambient halos -->
 <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-[#2c6975]/20 blur-[130px] rounded-full pointer-events-none -z-10"></div>
 <div class="fixed top-48 left-6 w-60 h-60 bg-[#7a252f]/15 blur-[110px] rounded-full pointer-events-none -z-10"></div>
@@ -250,26 +250,6 @@
 </footer>
 <!-- END: Copyright & Studio Credit -->
 </main>
-<!-- BEGIN: Sticky Bottom Action Bar (Inspired by Mobile Business Card App) -->
-<aside class="fixed bottom-4 inset-x-4 max-w-md mx-auto z-40" data-purpose="sticky-bottom-dock">
-<div class="bg-[#141a1e]/95 backdrop-blur-xl border border-dark-border shadow-2xl rounded-2xl p-2 flex items-center justify-between gap-2.5">
-<!-- Save Contact CTA -->
-<button class="flex-1 bg-gradient-to-r from-[#245969] via-[#357588] to-[#4a97ac] hover:from-[#2d6c7e] hover:to-[#57a6bc] text-white py-2.5 px-4 rounded-xl flex items-center justify-center gap-2.5 font-medium text-xs shadow-md tap-scale transition-all border border-[#94cfe4]/30" data-purpose="quick-save-contact" id="stickySaveBtn" type="button">
-<div class="relative w-6 h-6 rounded-full overflow-hidden border border-white/40 flex-shrink-0">
-<img alt="Mini Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ4IzH0HIIU79J1zm7aS036TDNPWMO53Vxg0J_h6NUB2AHcsqndCqmsh_0XgFDbpV5_PpUvL61a9Ax9ndGNwpCH-zUnWJxxPLA3YrYooQu9IwFZhZT1M-acQJykhhcSbFfZpXCNlUIi80MUQ3D1kAGW4QO93kSkbPCXiYQoN3Zuhg9iQC9yckYqQ9hTb4dLZOwk1JfiFcc0LX4B8pTltwxAKjSYoNGMtxjKLM2iVL92DUPJ2pJqaUTtIhfWg9WoOFbMxE"/>
-</div>
-<span class="font-bold">حفظ جهة الاتصال</span>
-</button>
-<!-- Share / QR Button -->
-<button class="bg-dark-cardHover hover:bg-dark-border text-gray-200 hover:text-white px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 text-xs border border-dark-border tap-scale transition" data-purpose="quick-open-qr" id="stickyQrBtn" type="button">
-<svg class="w-4 h-4 text-brand-tealLight" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
-<path d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-<span class="font-medium">مشاركة QR</span>
-</button>
-</div>
-</aside>
-<!-- END: Sticky Bottom Action Bar -->
 <!-- BEGIN: QR Code Sharing Modal Dialog -->
 <div aria-labelledby="qrModalTitle" aria-modal="true" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" data-purpose="qr-modal-dialog" id="qrModal" role="dialog">
 <div class="relative w-full max-w-xs bg-[#161d22] border border-brand-teal/40 rounded-3xl p-6 shadow-2xl flex flex-col items-center text-center transform scale-95 transition-transform duration-300" id="qrModalContent">
@@ -314,7 +294,7 @@
     const qrModal = document.getElementById('qrModal');
     const qrModalContent = document.getElementById('qrModalContent');
     const qrModalTrigger = document.getElementById('qrModalTrigger');
-    const stickyQrBtn = document.getElementById('stickyQrBtn');
+
     const closeQrModal = document.getElementById('closeQrModal');
     
     const toast = document.getElementById('toastNotification');
@@ -342,7 +322,7 @@
       qrModalContent.classList.add('scale-95');
     }
 
-    [qrModalTrigger, stickyQrBtn].forEach(btn => {
+    [qrModalTrigger].forEach(btn => {
       if (btn) btn.addEventListener('click', openModal);
     });
 
@@ -393,7 +373,7 @@
     }
 
     document.getElementById('saveContactMainBtn').addEventListener('click', downloadVCard);
-    document.getElementById('stickySaveBtn').addEventListener('click', downloadVCard);
+
   </script>
 <!-- BEGIN: QR Code Render (real scannable code) -->
 <script data-purpose="qrcode-lib">
@@ -410,7 +390,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
 <script data-purpose="qr-render">
     (function () {
       // Fixed target: the live card URL, so local/preview copies never encode dead addresses
-      window.__CARD_URL = 'https://islam-dawod.github.io/hamodi/';
+      window.__CARD_URL = 'https://takamul24.github.io/hamodi/';
       var qr = qrcode(0, 'H'); // 30% error correction for reliable scanning
       qr.addData(window.__CARD_URL, 'Byte');
       qr.make();
